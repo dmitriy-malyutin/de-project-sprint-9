@@ -6,13 +6,6 @@
 
 **Registry link:** cr.yandex/crpjgpaag26iltnsft12/project_s9
 
-
-## Dashboard
-
-[Популярность блюд](https://datalens.yandex/2earrr8c3dl8s)
-
-![Dashboard.png](img%2FDashboard.png)
-
 ## Описание файлов и папок
 
 ### docker-compose.yaml
