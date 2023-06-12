@@ -1,6 +1,7 @@
 APScheduler
 confluent_kafka
 flask
+psycopg2
 psycopg
 psycopg-binary
 pydantic

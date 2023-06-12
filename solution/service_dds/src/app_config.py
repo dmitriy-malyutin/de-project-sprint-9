@@ -6,26 +6,27 @@ from lib.pg import PgConnect
 
 class AppConfig:
     CERTIFICATE_PATH = '/crt/YandexInternalRootCA.crt'
+    DEFAULT_JOB_INTERVAL = 25
 
     def __init__(self) -> None:
 
-        self.kafka_host = str(os.getenv('KAFKA_HOST'))
-        self.kafka_port = int(str(os.getenv('KAFKA_PORT')))
-        self.kafka_consumer_username = str(os.getenv('KAFKA_CONSUMER_USERNAME'))
-        self.kafka_consumer_password = str(os.getenv('KAFKA_CONSUMER_PASSWORD'))
-        self.kafka_consumer_group = str(os.getenv('KAFKA_CONSUMER_GROUP'))
-        self.kafka_consumer_topic = str(os.getenv('KAFKA_SOURCE_TOPIC'))
-        self.kafka_producer_username = str(os.getenv('KAFKA_CONSUMER_USERNAME'))
-        self.kafka_producer_password = str(os.getenv('KAFKA_CONSUMER_PASSWORD'))
-        self.kafka_producer_topic = str(os.getenv('KAFKA_DESTINATION_TOPIC'))
+        self.kafka_host = str(os.getenv('KAFKA_HOST') or "")
+        self.kafka_port = int(str(os.getenv('KAFKA_PORT')) or 0)
+        self.kafka_consumer_username = str(os.getenv('KAFKA_CONSUMER_USERNAME') or "")
+        self.kafka_consumer_password = str(os.getenv('KAFKA_CONSUMER_PASSWORD') or "")
+        self.kafka_consumer_group = str(os.getenv('KAFKA_CONSUMER_GROUP') or "")
+        self.kafka_consumer_topic = str(os.getenv('KAFKA_SOURCE_TOPIC') or "")
+        self.kafka_producer_username = str(os.getenv('KAFKA_CONSUMER_USERNAME') or "")
+        self.kafka_producer_password = str(os.getenv('KAFKA_CONSUMER_PASSWORD') or "")
+        self.kafka_producer_topic = str(os.getenv('KAFKA_DESTINATION_TOPIC') or "")
 
-        self.pg_warehouse_host = str(os.getenv('PG_WAREHOUSE_HOST'))
-        self.pg_warehouse_port = int(str(os.getenv('PG_WAREHOUSE_PORT')))
-        self.pg_warehouse_dbname = str(os.getenv('PG_WAREHOUSE_DBNAME'))
-        self.pg_warehouse_user = str(os.getenv('PG_WAREHOUSE_USER'))
-        self.pg_warehouse_password = str(os.getenv('PG_WAREHOUSE_PASSWORD'))
+        self.pg_warehouse_host = str(os.getenv('PG_WAREHOUSE_HOST') or "")
+        self.pg_warehouse_port = int(str(os.getenv('PG_WAREHOUSE_PORT') or 0))
+        self.pg_warehouse_dbname = str(os.getenv('PG_WAREHOUSE_DBNAME') or "")
+        self.pg_warehouse_user = str(os.getenv('PG_WAREHOUSE_USER') or "")
+        self.pg_warehouse_password = str(os.getenv('PG_WAREHOUSE_PASSWORD') or "")
 
-    def kafka_producer(self):
+    def kafka_producer(self) -> KafkaProducer:
         return KafkaProducer(
             self.kafka_host,
             self.kafka_port,
@@ -35,7 +36,7 @@ class AppConfig:
             self.CERTIFICATE_PATH
         )
 
-    def kafka_consumer(self):
+    def kafka_consumer(self) -> KafkaConsumer:
         return KafkaConsumer(
             self.kafka_host,
             self.kafka_port,
@@ -46,7 +47,7 @@ class AppConfig:
             self.CERTIFICATE_PATH
         )
 
-    def pg_warehouse_db(self):
+    def pg_warehouse_db(self) -> PgConnect:
         return PgConnect(
             self.pg_warehouse_host,
             self.pg_warehouse_port,

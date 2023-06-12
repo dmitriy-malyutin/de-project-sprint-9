@@ -1,13 +1,40 @@
-# Проект 9-го спринта
+# Проектная работа по облачным технологиям
 
-### Как работать с репозиторием
-1. В вашем GitHub-аккаунте автоматически создастся репозиторий `de-project-sprint-9` после того, как вы привяжете свой GitHub-аккаунт на Платформе.
-2. Скопируйте репозиторий на свой компьютер. В качестве пароля укажите ваш `Access Token`, который нужно получить на странице [Personal Access Tokens](https://github.com/settings/tokens)):
-	* `git clone https://github.com/{{ username }}/de-project-sprint-9.git`
-3. Перейдите в директорию с проектом: 
-	* `cd de-project-sprint-9`
-4. Выполните проект и сохраните получившийся код в локальном репозитории:
-	* `git add .`
-	* `git commit -m 'my best commit'`
-5. Обновите репозиторий в вашем GitHub-аккаунте:
-	* `git push origin main`
+## Общая схема системы
+
+![schema.png](img%2Fschema.png)
+
+**Registry link:** cr.yandex/crpjgpaag26iltnsft12/project_s9
+
+
+## Dashboard
+
+[Популярность блюд](https://datalens.yandex/2earrr8c3dl8s)
+
+![Dashboard.png](img%2FDashboard.png)
+
+## Описание файлов и папок
+
+### docker-compose.yaml
+
+Файл docker-compose.yaml содержит конфигурацию для запуска и управления несколькими контейнерами Docker.
+
+### helm
+
+Папка helm содержит файлы, используемые для развертывания Kubernetes-приложений с помощью Helm.
+
+### docker_build
+
+В папке docker_build лежит dockerfile, который используется для сборки Docker-образа используемого решением.
+
+### service_cdm
+
+Папка service_cdm содержит исходный код сервиса CDM.
+
+### service_dds
+
+Папка service_dds содержит исходный код сервиса DDS.
+
+### service_stg
+
+Папка service_stg содержит исходный код сервиса STG.

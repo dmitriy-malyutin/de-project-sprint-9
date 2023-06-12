@@ -1,0 +1,10 @@
+asyncio
+APScheduler
+confluent_kafka
+flask
+psycopg2
+psycopg-binary
+psycopg
+pydantic
+redis
+python-dotenv
