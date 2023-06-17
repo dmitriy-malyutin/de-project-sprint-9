@@ -4,7 +4,7 @@
 
 ![schema.png](img%2Fschema.png)
 
-**Registry link:** cr.yandex/crpjgpaag26iltnsft12/project_s9
+**Registry link:** cr.yandex/crpjgpaag26iltnsft12/solution
 
 ## Описание файлов и папок
 
